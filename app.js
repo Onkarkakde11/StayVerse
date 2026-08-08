@@ -24,47 +24,62 @@ const listingRouter = require("./routes/listing");
 const reviewRouter = require("./routes/review");
 const userRouter = require("./routes/user");
 
-// App
+// ==========================================
+// APP
+// ==========================================
 
 const app = express();
-const PORT = 8092;
+
+// Render provides PORT automatically
+const PORT = process.env.PORT || 8092;
+
+// ==========================================
+// DATABASE
+// ==========================================
 
 const dbUrl = process.env.ATLASDB_URL;
 
-mongoose
-    .connect(dbUrl)
+async function main() {
+    await mongoose.connect(dbUrl);
+    console.log("✅ Connected to MongoDB Atlas");
+}
+
+main()
     .then(() => {
-        console.log("✅ Connected to MongoDB Atlas");
+        app.listen(PORT, () => {
+            console.log(`🚀 Server running on port ${PORT}`);
+        });
     })
     .catch((err) => {
         console.log("MongoDB Error:");
         console.log(err);
     });
 
+// ==========================================
+// VIEW ENGINE
+// ==========================================
+
 app.engine("ejs", ejsMate);
-
 app.set("view engine", "ejs");
-
 app.set("views", path.join(__dirname, "views"));
 
-// Middleware
+// ==========================================
+// MIDDLEWARE
+// ==========================================
 
 app.use(express.urlencoded({ extended: true }));
-
 app.use(methodOverride("_method"));
-
 app.use(express.static(path.join(__dirname, "public")));
 
-// Mongo Store
+// ==========================================
+// MONGO STORE
+// ==========================================
 
 const store = MongoStore.create({
-
-    mongoUrl: process.env.ATLASDB_URL,
-
+    mongoUrl: dbUrl,
     crypto: {
         secret: process.env.SECRET,
     },
-
     touchAfter: 24 * 3600,
 });
 
@@ -73,105 +88,79 @@ store.on("error", (err) => {
     console.log(err);
 });
 
-// Session
+// ==========================================
+// SESSION
+// ==========================================
 
 const sessionOptions = {
-
     store,
-
     secret: process.env.SECRET,
-
     resave: false,
-
     saveUninitialized: false,
-
     cookie: {
-
         expires: Date.now() + 7 * 24 * 60 * 60 * 1000,
-
         maxAge: 7 * 24 * 60 * 60 * 1000,
-
         httpOnly: true,
     },
 };
 
 app.use(session(sessionOptions));
-
 app.use(flash());
 
-// Passport
+// ==========================================
+// PASSPORT
+// ==========================================
 
 app.use(passport.initialize());
-
 app.use(passport.session());
 
 passport.use(new LocalStrategy(User.authenticate()));
 
 passport.serializeUser(User.serializeUser());
-
 passport.deserializeUser(User.deserializeUser());
 
-// Global Variables
+// ==========================================
+// GLOBAL VARIABLES
+// ==========================================
 
 app.use((req, res, next) => {
-
     res.locals.success = req.flash("success");
-
     res.locals.error = req.flash("error");
-
     res.locals.currUser = req.user;
-
     next();
 });
 
-// Home Route
+// ==========================================
+// ROUTES
+// ==========================================
 
 app.get("/", (req, res) => {
-
     res.redirect("/listings");
-
 });
-
-// Routes
 
 app.use("/", userRouter);
-
 app.use("/listings", listingRouter);
-
 app.use("/listings/:id/reviews", reviewRouter);
 
-// 404 Handler
+// ==========================================
+// 404
+// ==========================================
 
 app.all("/*splat", (req, res, next) => {
-
     next(new ExpressError(404, "Page Not Found"));
-
 });
 
-// Error Handler
+// ==========================================
+// ERROR HANDLER
+// ==========================================
 
 app.use((err, req, res, next) => {
-
     const {
-
         statusCode = 500,
-
         message = "Something Went Wrong!",
-
     } = err;
 
     res.status(statusCode).render("error", {
-
         message,
-
     });
-
-});
-
-// Server
-
-app.listen(PORT, () => {
-
-    console.log(`🚀 Server running on port ${PORT}`);
-
 });
