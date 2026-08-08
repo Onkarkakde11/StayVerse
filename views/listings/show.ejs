@@ -1,0 +1,731 @@
+<% layout("layouts/boilerplate") %>
+
+
+<div class="property-page">
+
+
+    <!-- ==========================================
+         PROPERTY HEADER
+    =========================================== -->
+
+    <div class="property-header">
+
+        <h1 class="property-title">
+            <%= listing.title %>
+        </h1>
+
+        <p class="property-location">
+
+            <span>📍</span>
+
+            <span>
+                <%= listing.location %>,
+                <%= listing.country %>
+            </span>
+
+        </p>
+
+    </div>
+
+
+    <!-- ==========================================
+         PROPERTY IMAGE
+    =========================================== -->
+
+    <div class="property-image-wrapper">
+
+        <img
+            src="<%=
+                listing.image &&
+                listing.image.url
+                    ? listing.image.url
+                    : 'https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=1200&q=80'
+            %>"
+            alt="<%= listing.title %>"
+            class="property-main-image"
+        >
+
+
+        <!-- PRICE BADGE -->
+
+        <div class="property-price-badge">
+
+            $<%= Number(listing.price).toLocaleString("en-US") %>
+
+            <span>
+                / night
+            </span>
+
+        </div>
+
+    </div>
+
+
+    <!-- ==========================================
+         MAIN CONTENT
+    =========================================== -->
+
+    <div class="property-content">
+
+
+        <!-- ======================================
+             LEFT COLUMN
+        ======================================= -->
+
+        <main class="property-details">
+
+
+            <!-- ==================================
+                 HOST
+            =================================== -->
+
+            <section class="host-section">
+
+
+                <!-- HOST AVATAR -->
+
+                <div class="host-avatar">
+
+                    <% if (
+                        listing.owner &&
+                        listing.owner.username
+                    ) { %>
+
+                        <%= listing.owner.username
+                            .charAt(0)
+                            .toUpperCase()
+                        %>
+
+                    <% } else { %>
+
+                        S
+
+                    <% } %>
+
+                </div>
+
+
+                <!-- HOST INFORMATION -->
+
+                <div class="host-info">
+
+                    <span>
+                        Hosted by
+                    </span>
+
+
+                    <h3>
+
+                        <% if (
+                            listing.owner &&
+                            listing.owner.username
+                        ) { %>
+
+                            <%= listing.owner.username %>
+
+                        <% } else { %>
+
+                            StayVerse Host
+
+                        <% } %>
+
+                    </h3>
+
+                </div>
+
+            </section>
+
+
+            <hr class="property-divider">
+
+
+            <!-- ==================================
+                 ABOUT PROPERTY
+            =================================== -->
+
+            <section class="about-section">
+
+                <h2>
+                    About this place
+                </h2>
+
+                <p>
+                    <%= listing.description %>
+                </p>
+
+            </section>
+
+
+            <hr class="property-divider">
+
+
+            <!-- ==================================
+                 PROPERTY DETAILS
+            =================================== -->
+
+            <section class="property-info-section">
+
+                <h2>
+                    Property details
+                </h2>
+
+
+                <div class="property-info-grid">
+
+
+                    <!-- LOCATION -->
+
+                    <div class="property-info-box">
+
+                        <div class="info-icon">
+                            📍
+                        </div>
+
+                        <div class="info-content">
+
+                            <small>
+                                Location
+                            </small>
+
+                            <strong>
+                                <%= listing.location %>
+                            </strong>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- COUNTRY -->
+
+                    <div class="property-info-box">
+
+                        <div class="info-icon">
+                            🌍
+                        </div>
+
+                        <div class="info-content">
+
+                            <small>
+                                Country
+                            </small>
+
+                            <strong>
+                                <%= listing.country %>
+                            </strong>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- PRICE -->
+
+                    <div class="property-info-box">
+
+                        <div class="info-icon">
+                            💵
+                        </div>
+
+                        <div class="info-content">
+
+                            <small>
+                                Price per night
+                            </small>
+
+                            <strong>
+                                $<%= Number(listing.price).toLocaleString("en-US") %>
+                            </strong>
+
+                        </div>
+
+                    </div>
+
+
+                </div>
+
+            </section>
+
+
+            <!-- ==================================
+                 OWNER CONTROLS
+            =================================== -->
+
+            <% if (
+                currUser &&
+                listing.owner &&
+                currUser._id.equals(listing.owner._id)
+            ) { %>
+
+
+                <hr class="property-divider">
+
+
+                <div class="owner-actions">
+
+
+                    <!-- EDIT -->
+
+                    <a
+                        href="/listings/<%= listing._id %>/edit"
+                        class="edit-listing-btn"
+                    >
+                        Edit Listing
+                    </a>
+
+
+                    <!-- DELETE -->
+
+                    <form
+                        method="POST"
+                        action="/listings/<%= listing._id %>?_method=DELETE"
+                    >
+
+                        <button
+                            type="submit"
+                            class="delete-listing-btn"
+                            onclick="return confirm('Are you sure you want to delete this listing?')"
+                        >
+                            Delete Listing
+                        </button>
+
+                    </form>
+
+
+                </div>
+
+
+            <% } %>
+
+
+            <!-- ==================================
+                 REVIEW FORM
+            =================================== -->
+
+            <hr class="property-divider">
+
+
+            <% if (currUser) { %>
+
+
+                <section class="review-form-section">
+
+
+                    <h2>
+                        Leave a Review
+                    </h2>
+
+
+                    <form
+                        action="/listings/<%= listing._id %>/reviews"
+                        method="POST"
+                        class="review-form"
+                    >
+
+
+                        <!-- RATING -->
+
+                        <div class="review-field">
+
+                            <label for="rating">
+                                Rating
+                            </label>
+
+
+                            <select
+                                name="review[rating]"
+                                id="rating"
+                                required
+                            >
+
+                                <option value="">
+                                    Select Rating
+                                </option>
+
+                                <option value="1">
+                                    ⭐ 1 - Poor
+                                </option>
+
+                                <option value="2">
+                                    ⭐⭐ 2 - Fair
+                                </option>
+
+                                <option value="3">
+                                    ⭐⭐⭐ 3 - Good
+                                </option>
+
+                                <option value="4">
+                                    ⭐⭐⭐⭐ 4 - Very Good
+                                </option>
+
+                                <option value="5">
+                                    ⭐⭐⭐⭐⭐ 5 - Excellent
+                                </option>
+
+                            </select>
+
+                        </div>
+
+
+                        <!-- COMMENT -->
+
+                        <div class="review-field">
+
+                            <label for="comment">
+                                Comment
+                            </label>
+
+
+                            <textarea
+                                name="review[comment]"
+                                id="comment"
+                                rows="5"
+                                placeholder="Share your experience..."
+                                required
+                            ></textarea>
+
+                        </div>
+
+
+                        <!-- SUBMIT -->
+
+                        <button
+                            type="submit"
+                            class="review-submit-btn"
+                        >
+                            Submit Review
+                        </button>
+
+
+                    </form>
+
+
+                </section>
+
+
+            <% } else { %>
+
+
+                <!-- LOGIN REQUIRED -->
+
+                <div class="review-login-message">
+
+                    <p>
+
+                        Please
+
+                        <a href="/login">
+                            login
+                        </a>
+
+                        to leave a review.
+
+                    </p>
+
+                </div>
+
+
+            <% } %>
+
+
+            <!-- ==================================
+                 GUEST REVIEWS
+            =================================== -->
+
+            <hr class="property-divider">
+
+
+            <section class="reviews-section">
+
+                <h2>
+                    Guest Reviews
+                </h2>
+
+
+                <% if (
+                    listing.reviews &&
+                    listing.reviews.length > 0
+                ) { %>
+
+
+                    <div class="reviews-grid">
+
+
+                        <% for (let review of listing.reviews) { %>
+
+
+                            <article class="review-card">
+
+
+                                <!-- ==========================
+                                     REVIEW AUTHOR
+                                =========================== -->
+
+                                <% if (
+                                    review.author &&
+                                    review.author.username
+                                ) { %>
+
+
+                                    <div class="review-user">
+
+
+                                        <!-- AVATAR -->
+
+                                        <div class="review-avatar">
+
+                                            <%= review.author.username
+                                                .charAt(0)
+                                                .toUpperCase()
+                                            %>
+
+                                        </div>
+
+
+                                        <!-- USERNAME -->
+
+                                        <div class="review-user-info">
+
+                                            <strong>
+                                                <%= review.author.username %>
+                                            </strong>
+
+                                            <small>
+                                                StayVerse Guest
+                                            </small>
+
+                                        </div>
+
+
+                                    </div>
+
+
+                                <% } %>
+
+
+                                <!-- ==========================
+                                     STARS
+                                =========================== -->
+
+                                <div class="review-stars">
+
+
+                                    <% for (
+                                        let i = 1;
+                                        i <= 5;
+                                        i++
+                                    ) { %>
+
+
+                                        <% if (
+                                            i <= review.rating
+                                        ) { %>
+
+                                            ⭐
+
+                                        <% } else { %>
+
+                                            ☆
+
+                                        <% } %>
+
+
+                                    <% } %>
+
+
+                                </div>
+
+
+                                <!-- ==========================
+                                     COMMENT
+                                =========================== -->
+
+                                <p class="review-comment">
+
+                                    <%= review.comment %>
+
+                                </p>
+
+
+                                <!-- ==========================
+                                     DELETE REVIEW
+
+                                     Only review author
+                                     can see this button
+                                =========================== -->
+
+                                <% if (
+                                    currUser &&
+                                    review.author &&
+                                    currUser._id.equals(
+                                        review.author._id
+                                    )
+                                ) { %>
+
+
+                                    <form
+                                        method="POST"
+                                        action="/listings/<%= listing._id %>/reviews/<%= review._id %>?_method=DELETE"
+                                    >
+
+                                        <button
+                                            type="submit"
+                                            class="delete-review-btn"
+                                            onclick="return confirm('Delete this review?')"
+                                        >
+                                            Delete Review
+                                        </button>
+
+                                    </form>
+
+
+                                <% } %>
+
+
+                            </article>
+
+
+                        <% } %>
+
+
+                    </div>
+
+
+                <% } else { %>
+
+
+                    <!-- ==================================
+                         NO REVIEWS
+                    =================================== -->
+
+                    <div class="no-reviews">
+
+                        <span>
+                            ⭐
+                        </span>
+
+                        <h3>
+                            No reviews yet
+                        </h3>
+
+                        <p>
+                            Be the first guest to review this property.
+                        </p>
+
+                    </div>
+
+
+                <% } %>
+
+
+            </section>
+
+
+        </main>
+
+
+        <!-- ======================================
+             RIGHT COLUMN
+             BOOKING CARD
+        ======================================= -->
+
+        <aside class="booking-column">
+
+
+            <div class="booking-card">
+
+
+                <!-- PRICE -->
+
+                <div class="booking-price">
+
+                    <strong>
+                        $<%= Number(listing.price).toLocaleString("en-US") %>
+                    </strong>
+
+                    <span>
+                        / night
+                    </span>
+
+                </div>
+
+
+                <hr class="booking-divider">
+
+
+                <!-- LOCATION -->
+
+                <div class="booking-location">
+
+                    <span>
+                        📍
+                    </span>
+
+                    <span>
+
+                        <%= listing.location %>,
+                        <%= listing.country %>
+
+                    </span>
+
+                </div>
+
+
+                <!-- FEATURES -->
+
+                <div class="booking-info">
+
+
+                    <div class="booking-feature">
+
+                        <span>
+                            🏡
+                        </span>
+
+                        <p>
+                            Entire place
+                        </p>
+
+                    </div>
+
+
+                    <div class="booking-feature">
+
+                        <span>
+                            ✓
+                        </span>
+
+                        <p>
+                            Free cancellation
+                        </p>
+
+                    </div>
+
+
+                </div>
+
+
+                <!-- RESERVE -->
+
+                <button
+                    type="button"
+                    class="reserve-btn"
+                >
+                    Reserve
+                </button>
+
+
+                <p class="booking-note">
+                    You won't be charged yet
+                </p>
+
+
+            </div>
+
+
+        </aside>
+
+
+    </div>
+
+</div>

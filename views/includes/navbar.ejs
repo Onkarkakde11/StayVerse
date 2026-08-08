@@ -1,0 +1,77 @@
+<nav class="navbar">
+
+    <!-- Logo -->
+    <div class="logo">
+        <a href="/listings">
+            🏠 StayVerse
+        </a>
+    </div>
+
+
+    <!-- Navigation -->
+    <ul class="nav-links">
+
+        <li>
+            <a href="/listings">Explore</a>
+        </li>
+
+        <li>
+            <a href="/listings/new">Become a Host</a>
+        </li>
+
+        <li>
+            <a href="#">Help</a>
+        </li>
+
+
+        <!-- NOT LOGGED IN -->
+        <% if (!currUser) { %>
+
+            <li>
+                <a href="/login">Login</a>
+            </li>
+
+            <li>
+                <a href="/signup">Sign Up</a>
+            </li>
+
+        <% } else { %>
+
+
+            <!-- LOGGED IN -->
+
+            <li class="user-profile">
+
+                <div class="user-avatar">
+                    <%= currUser.username.charAt(0).toUpperCase() %>
+                </div>
+
+                <div class="user-info">
+
+                    <span class="welcome-text">
+                        Welcome
+                    </span>
+
+                    <span class="username">
+                        <%= currUser.username %>
+                    </span>
+
+                </div>
+
+            </li>
+
+
+            <li>
+                <a
+                    href="/logout"
+                    class="logout-btn"
+                >
+                    Logout
+                </a>
+            </li>
+
+        <% } %>
+
+    </ul>
+
+</nav>

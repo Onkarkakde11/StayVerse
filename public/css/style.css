@@ -1,0 +1,2377 @@
+/* =========================================================
+   STAYVERSE - MAIN STYLESHEET
+========================================================= */
+
+
+/* =========================================================
+   1. GLOBAL
+========================================================= */
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f7f7f7;
+    color: #222;
+}
+
+.container {
+    width: 90%;
+    margin: 30px auto;
+}
+
+
+/* =========================================================
+   2. NAVBAR
+========================================================= */
+
+.navbar {
+    height: 90px;
+    padding: 0 4.5rem;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    background: #fff;
+    border-bottom: 1px solid #e8e8e8;
+}
+
+.logo a {
+    color: #ff385c;
+    font-size: 28px;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 28px;
+
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-links li {
+    display: flex;
+    align-items: center;
+}
+
+.nav-links a {
+    color: #222;
+    font-size: 17px;
+    font-weight: 600;
+
+    text-decoration: none;
+
+    transition: color 0.2s ease;
+}
+
+.nav-links a:hover {
+    color: #ff385c;
+}
+
+
+/* =========================================================
+   3. USER PROFILE
+========================================================= */
+
+.user-profile {
+    display: flex !important;
+    align-items: center;
+    gap: 9px;
+
+    padding: 5px 12px 5px 6px;
+
+    background: #fff7f8;
+    border: 1px solid #ffd6dd;
+    border-radius: 50px;
+
+    cursor: pointer;
+
+    transition:
+        background 0.2s ease,
+        border-color 0.2s ease;
+}
+
+.user-profile:hover {
+    background: #fff0f3;
+    border-color: #ffb8c5;
+}
+
+.user-avatar {
+    width: 36px;
+    height: 36px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    flex-shrink: 0;
+
+    border-radius: 50%;
+
+    background: #ff385c;
+    color: #fff;
+
+    font-size: 16px;
+    font-weight: 700;
+}
+
+.user-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    line-height: 1.15;
+}
+
+.welcome-text {
+    font-size: 11px;
+    font-weight: 500;
+    color: #777;
+}
+
+.username {
+    font-size: 14px;
+    font-weight: 700;
+    color: #222;
+}
+
+
+/* =========================================================
+   4. LOGOUT BUTTON
+========================================================= */
+
+.nav-links .logout-btn {
+    padding: 9px 17px !important;
+
+    border: 1.5px solid #ff385c;
+    border-radius: 50px;
+
+    background: #fff;
+    color: #ff385c !important;
+
+    font-size: 15px;
+    font-weight: 600;
+
+    transition:
+        background 0.2s ease,
+        color 0.2s ease;
+}
+
+.nav-links .logout-btn:hover {
+    background: #ff385c;
+    color: #fff !important;
+}
+
+
+/* =========================================================
+   5. FOOTER
+========================================================= */
+
+.f-info {
+    min-height: 8rem;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    gap: 0.8rem;
+
+    margin-top: 2rem;
+
+    background: #ebebeb;
+}
+
+.f-info-socials {
+    font-size: 1.5rem;
+}
+
+.f-info-socials i {
+    margin-right: 1rem;
+    cursor: pointer;
+}
+
+.f-info-brand {
+    font-size: 1rem;
+    color: #222;
+}
+
+.f-info-links a {
+    margin: 0 0.3rem;
+
+    color: #222;
+    text-decoration: none;
+}
+
+.f-info-links a:hover {
+    text-decoration: underline;
+}
+
+
+/* =========================================================
+   6. GENERAL FORM STYLING
+========================================================= */
+
+.form-control {
+    padding: 0.75rem;
+    border-radius: 12px;
+}
+
+.form-control:focus {
+    border-color: #ff385c;
+
+    box-shadow:
+        0 0 0 0.15rem rgba(255, 56, 92, 0.25);
+}
+
+.form-label {
+    font-weight: 600;
+}
+
+.card {
+    background: #fff;
+}
+
+.btn-danger {
+    background: #ff385c;
+    border: none;
+    border-radius: 12px;
+
+    transition: background 0.3s ease;
+}
+
+.btn-danger:hover {
+    background: #e31c5f;
+}
+
+
+/* =========================================================
+   7. LISTINGS PAGE
+========================================================= */
+
+.listings-page {
+    width: 100%;
+    max-width: 1240px;
+
+    margin: 0 auto;
+    padding: 55px 25px 80px;
+}
+
+
+/* PAGE HEADER */
+
+.listings-page-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    gap: 25px;
+
+    margin-bottom: 40px;
+}
+
+.listings-page-header h1 {
+    margin: 0;
+
+    font-size: 2.5rem;
+    font-weight: 700;
+
+    color: #222;
+}
+
+.listings-page-header p {
+    margin: 8px 0 0;
+
+    color: #717171;
+    font-size: 1rem;
+}
+
+
+/* CREATE LISTING BUTTON */
+
+.create-listing-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 13px 22px;
+
+    background: #ff385c;
+    color: #fff;
+
+    border-radius: 12px;
+
+    font-size: 1rem;
+    font-weight: 600;
+
+    text-decoration: none;
+    white-space: nowrap;
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease,
+        background 0.2s ease;
+}
+
+.create-listing-btn:hover {
+    background: #e31c5f;
+    color: #fff;
+
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 6px 18px rgba(255, 56, 92, 0.25);
+}
+
+
+/* LISTINGS GRID */
+
+.stayverse-listings-grid {
+    width: 100%;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, minmax(0, 1fr));
+
+    gap: 32px 28px;
+
+    align-items: start;
+}
+
+
+/* LISTING LINK */
+
+.stayverse-listing-link {
+    display: block;
+
+    width: 100%;
+
+    color: inherit;
+    text-decoration: none;
+}
+
+.stayverse-listing-link:hover {
+    color: inherit;
+    text-decoration: none;
+}
+
+
+/* LISTING CARD */
+
+.stayverse-listing-card {
+    width: 100%;
+
+    overflow: hidden;
+
+    background: #fff;
+
+    border: 1px solid #eee;
+    border-radius: 18px;
+
+    box-shadow:
+        0 4px 14px rgba(0, 0, 0, 0.06);
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+.stayverse-listing-card:hover {
+    transform: translateY(-5px);
+
+    box-shadow:
+        0 12px 30px rgba(0, 0, 0, 0.12);
+}
+
+
+/* LISTING IMAGE */
+
+.stayverse-card-image {
+    width: 100%;
+    height: 260px;
+
+    overflow: hidden;
+
+    background: #eee;
+}
+
+.stayverse-card-image img {
+    width: 100%;
+    height: 100%;
+
+    display: block;
+
+    object-fit: cover;
+    object-position: center;
+
+    transition: transform 0.4s ease;
+}
+
+.stayverse-listing-card:hover .stayverse-card-image img {
+    transform: scale(1.04);
+}
+
+
+/* LISTING CONTENT */
+
+.stayverse-card-content {
+    padding: 20px 20px 22px;
+}
+
+.stayverse-card-content h2 {
+    min-height: 52px;
+
+    margin: 0 0 12px;
+
+    font-size: 1.25rem;
+    line-height: 1.3;
+    font-weight: 700;
+
+    color: #222;
+}
+
+
+/* PRICE */
+
+.stayverse-card-price {
+    margin-bottom: 10px;
+
+    font-size: 1.05rem;
+    font-weight: 700;
+
+    color: #222;
+}
+
+.stayverse-card-price span {
+    font-weight: 400;
+    color: #555;
+}
+
+
+/* LOCATION */
+
+.stayverse-card-location {
+    display: flex;
+    align-items: flex-start;
+
+    gap: 6px;
+
+    color: #717171;
+
+    font-size: 0.97rem;
+    line-height: 1.4;
+}
+
+
+/* =========================================================
+   8. LEGACY LISTING CARD SUPPORT
+========================================================= */
+
+.listing-card {
+    overflow: hidden;
+
+    border: none !important;
+    border-radius: 15px;
+
+    box-shadow:
+        0 2px 10px rgba(0, 0, 0, 0.08);
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+.listing-card:hover {
+    transform: translateY(-6px);
+
+    box-shadow:
+        0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.listing-img {
+    width: 100%;
+    height: 250px;
+
+    object-fit: cover;
+    object-position: center;
+}
+
+.card-body {
+    padding: 1rem;
+}
+
+.card-title {
+    font-weight: 600;
+}
+
+.listing-link {
+    color: #000;
+    text-decoration: none;
+}
+
+.listing-link:hover {
+    color: #000;
+}
+
+
+/* =========================================================
+   9. PROPERTY SHOW PAGE
+========================================================= */
+
+.property-page {
+    width: 100%;
+    max-width: 1200px;
+
+    margin: 0 auto;
+    padding: 45px 25px 70px;
+}
+
+
+/* PROPERTY HEADER */
+
+.property-header {
+    margin-bottom: 25px;
+}
+
+.property-title {
+    margin: 0 0 8px;
+
+    font-size: 2.2rem;
+    font-weight: 700;
+
+    color: #222;
+}
+
+.property-location {
+    display: flex;
+    align-items: center;
+
+    gap: 6px;
+
+    margin: 0;
+
+    color: #666;
+    font-size: 1rem;
+}
+
+
+/* =========================================================
+   10. PROPERTY MAIN IMAGE
+========================================================= */
+
+.property-image-wrapper {
+    width: 100%;
+    height: 500px;
+
+    position: relative;
+    overflow: hidden;
+
+    background: #eee;
+
+    border-radius: 20px;
+
+    box-shadow:
+        0 8px 25px rgba(0, 0, 0, 0.10);
+}
+
+.property-main-image {
+    width: 100%;
+    height: 100%;
+
+    display: block;
+
+    object-fit: cover;
+    object-position: center center;
+}
+
+
+/* PROPERTY PRICE BADGE */
+
+.property-price-badge {
+    position: absolute;
+
+    right: 25px;
+    bottom: 25px;
+
+    padding: 13px 20px;
+
+    background: rgba(255, 255, 255, 0.95);
+
+    border-radius: 14px;
+
+    color: #222;
+
+    font-size: 1.25rem;
+    font-weight: 700;
+
+    box-shadow:
+        0 5px 20px rgba(0, 0, 0, 0.15);
+}
+
+.property-price-badge span {
+    color: #666;
+
+    font-size: 0.9rem;
+    font-weight: 400;
+}
+
+
+/* =========================================================
+   11. PROPERTY CONTENT
+========================================================= */
+
+.property-content {
+    display: grid;
+
+    grid-template-columns:
+        minmax(0, 2fr)
+        minmax(280px, 1fr);
+
+    gap: 55px;
+
+    margin-top: 45px;
+}
+
+.property-details {
+    min-width: 0;
+}
+
+
+/* =========================================================
+   12. HOST SECTION
+========================================================= */
+
+.host-section {
+    display: flex;
+    align-items: center;
+
+    gap: 16px;
+}
+
+.host-avatar {
+    width: 58px;
+    height: 58px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    flex-shrink: 0;
+
+    border-radius: 50%;
+
+    background: #ff385c;
+    color: #fff;
+
+    font-size: 1.4rem;
+    font-weight: 700;
+
+    box-shadow:
+        0 4px 12px rgba(255, 56, 92, 0.25);
+}
+
+.host-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.host-info span,
+.host-label {
+    color: #777;
+    font-size: 0.9rem;
+}
+
+.host-info h3 {
+    margin: 2px 0 0;
+
+    color: #222;
+
+    font-size: 1.2rem;
+    font-weight: 700;
+}
+
+
+/* =========================================================
+   13. DIVIDERS
+========================================================= */
+
+.property-divider {
+    margin: 30px 0;
+
+    border: none;
+    border-top: 1px solid #e6e6e6;
+}
+
+
+/* =========================================================
+   14. ABOUT SECTION
+========================================================= */
+
+.about-section h2,
+.property-info-section h2,
+.reviews-section h2 {
+    margin: 0 0 15px;
+
+    color: #222;
+
+    font-size: 1.45rem;
+    font-weight: 700;
+}
+
+.about-section p {
+    margin: 0;
+
+    color: #555;
+
+    font-size: 1.02rem;
+    line-height: 1.8;
+}
+
+
+/* =========================================================
+   15. PROPERTY INFORMATION
+========================================================= */
+
+.property-info-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, minmax(0, 1fr));
+
+    gap: 15px;
+}
+
+.property-info-box {
+    display: flex;
+    align-items: center;
+
+    gap: 12px;
+
+    min-width: 0;
+
+    padding: 18px;
+
+    background: #fff;
+
+    border: 1px solid #e5e5e5;
+    border-radius: 14px;
+}
+
+.info-icon {
+    flex-shrink: 0;
+
+    font-size: 1.5rem;
+}
+
+.info-content {
+    display: flex;
+    flex-direction: column;
+
+    min-width: 0;
+}
+
+.info-content small {
+    margin-bottom: 3px;
+
+    color: #888;
+    font-size: 0.8rem;
+}
+
+.info-content strong {
+    color: #333;
+    font-size: 0.95rem;
+
+    overflow-wrap: anywhere;
+}
+
+
+/* =========================================================
+   16. BOOKING CARD
+========================================================= */
+
+.booking-column {
+    position: relative;
+}
+
+.booking-card {
+    position: sticky;
+    top: 110px;
+
+    padding: 26px;
+
+    background: #fff;
+
+    border: 1px solid #ddd;
+    border-radius: 18px;
+
+    box-shadow:
+        0 8px 30px rgba(0, 0, 0, 0.12);
+}
+
+.booking-price {
+    margin-bottom: 18px;
+
+    color: #222;
+
+    font-size: 1.55rem;
+    font-weight: 700;
+}
+
+.booking-price strong {
+    font-size: inherit;
+}
+
+.booking-price span {
+    color: #666;
+
+    font-size: 0.95rem;
+    font-weight: 400;
+}
+
+.booking-divider {
+    margin: 18px 0;
+
+    border: none;
+    border-top: 1px solid #ddd;
+}
+
+.booking-location {
+    display: flex;
+    align-items: flex-start;
+
+    gap: 8px;
+
+    padding: 14px 0 20px;
+
+    color: #555;
+}
+
+.booking-info {
+    margin-bottom: 20px;
+}
+
+.booking-feature {
+    display: flex;
+    align-items: center;
+
+    gap: 10px;
+
+    margin-bottom: 12px;
+}
+
+.booking-feature p {
+    margin: 0;
+}
+
+.reserve-btn {
+    width: 100%;
+
+    padding: 14px;
+
+    border: none;
+    border-radius: 10px;
+
+    background: #ff385c;
+    color: #fff;
+
+    font-size: 1rem;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition:
+        background 0.2s ease,
+        transform 0.2s ease;
+}
+
+.reserve-btn:hover {
+    background: #e31c5f;
+    transform: translateY(-1px);
+}
+
+.booking-note {
+    margin: 14px 0 0;
+
+    text-align: center;
+
+    color: #888;
+    font-size: 0.82rem;
+}
+
+
+/* =========================================================
+   17. OWNER ACTIONS
+========================================================= */
+
+.owner-actions {
+    display: flex;
+    align-items: center;
+
+    gap: 12px;
+}
+
+.owner-actions form {
+    margin: 0;
+}
+
+.edit-listing-btn,
+.delete-listing-btn {
+    padding: 11px 18px;
+
+    border-radius: 10px;
+
+    font-size: 0.92rem;
+    font-weight: 600;
+
+    text-decoration: none;
+
+    cursor: pointer;
+
+    transition:
+        background 0.2s ease,
+        color 0.2s ease;
+}
+
+.edit-listing-btn {
+    background: #222;
+    color: #fff;
+}
+
+.edit-listing-btn:hover {
+    background: #000;
+    color: #fff;
+}
+
+.delete-listing-btn {
+    background: #fff;
+    color: #dc3545;
+
+    border: 1px solid #dc3545;
+}
+
+.delete-listing-btn:hover {
+    background: #dc3545;
+    color: #fff;
+}
+
+
+/* =========================================================
+   18. REVIEW FORM
+========================================================= */
+
+.review-form-section {
+    width: 100%;
+    max-width: 850px;
+
+    margin-top: 35px;
+    padding: 32px;
+
+    background: #fff;
+
+    border: 1px solid #e5e5e5;
+    border-radius: 20px;
+}
+
+.review-form-section h2 {
+    margin: 0 0 25px;
+
+    color: #222;
+
+    font-size: 30px;
+    font-weight: 700;
+}
+
+.review-form {
+    width: 100%;
+}
+
+.review-field {
+    display: flex;
+    flex-direction: column;
+
+    gap: 8px;
+
+    margin-bottom: 22px;
+}
+
+.review-field label {
+    color: #333;
+
+    font-size: 16px;
+    font-weight: 600;
+}
+
+
+/* RATING */
+
+.review-field select {
+    width: 100%;
+    height: 52px;
+
+    padding: 0 15px;
+
+    background: #fff;
+    color: #222;
+
+    border: 1px solid #d4d4d4;
+    border-radius: 10px;
+
+    font-family: inherit;
+    font-size: 16px;
+
+    outline: none;
+    cursor: pointer;
+
+    transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.review-field select:focus {
+    border-color: #ff385c;
+
+    box-shadow:
+        0 0 0 3px rgba(255, 56, 92, 0.12);
+}
+
+
+/* COMMENT */
+
+.review-field textarea {
+    width: 100%;
+    min-height: 140px;
+
+    padding: 15px;
+
+    background: #fff;
+    color: #222;
+
+    border: 1px solid #d4d4d4;
+    border-radius: 10px;
+
+    font-family: inherit;
+    font-size: 16px;
+    line-height: 1.5;
+
+    resize: vertical;
+    outline: none;
+
+    transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.review-field textarea::placeholder {
+    color: #999;
+}
+
+.review-field textarea:focus {
+    border-color: #ff385c;
+
+    box-shadow:
+        0 0 0 3px rgba(255, 56, 92, 0.12);
+}
+
+
+/* REVIEW BUTTON */
+
+.review-submit-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 13px 25px;
+
+    background: #ff385c;
+    color: #fff;
+
+    border: none;
+    border-radius: 10px;
+
+    font-family: inherit;
+    font-size: 16px;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.2s ease,
+        background 0.2s ease;
+}
+
+.review-submit-btn:hover {
+    background: #e31c5f;
+    transform: translateY(-1px);
+}
+
+
+/* =========================================================
+   19. GUEST REVIEWS
+========================================================= */
+
+.reviews-section {
+    margin-top: 35px;
+}
+
+.reviews-section h2 {
+    margin-bottom: 25px;
+    font-size: 30px;
+}
+
+.reviews-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, minmax(0, 1fr));
+
+    gap: 20px;
+}
+
+.review-card {
+    padding: 22px;
+
+    background: #fff;
+
+    border: 1px solid #e5e5e5;
+    border-radius: 16px;
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.review-card:hover {
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 8px 25px rgba(0, 0, 0, 0.08);
+}
+
+.review-stars {
+    margin-bottom: 12px;
+
+    color: #ff385c;
+
+    font-size: 18px;
+    letter-spacing: 1px;
+}
+
+.review-comment {
+    margin: 0 0 15px;
+
+    color: #444;
+
+    font-size: 15px;
+    line-height: 1.6;
+}
+
+
+/* =========================================================
+   20. REVIEW USER
+========================================================= */
+
+.review-user {
+    display: flex;
+    align-items: center;
+
+    gap: 12px;
+
+    margin-bottom: 15px;
+}
+
+.review-avatar {
+    width: 46px;
+    height: 46px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    flex-shrink: 0;
+
+    border-radius: 50%;
+
+    background: #ff385c;
+    color: #fff;
+
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.review-user-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.review-user-info strong {
+    color: #222;
+    font-size: 16px;
+}
+
+.review-user-info small {
+    margin-top: 2px;
+
+    color: #777;
+}
+
+
+/* =========================================================
+   21. DELETE REVIEW
+========================================================= */
+
+.delete-review-btn {
+    padding: 8px 14px;
+
+    background: transparent;
+    color: #ff385c;
+
+    border: 1px solid #ff385c;
+    border-radius: 8px;
+
+    font-size: 14px;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition:
+        background 0.2s ease,
+        color 0.2s ease;
+}
+
+.delete-review-btn:hover {
+    background: #ff385c;
+    color: #fff;
+}
+
+
+/* =========================================================
+   22. NO REVIEWS
+========================================================= */
+
+.no-reviews {
+    margin-top: 25px;
+    padding: 40px;
+
+    background: #fafafa;
+
+    border-radius: 15px;
+
+    text-align: center;
+
+    color: #777;
+}
+
+.no-reviews span {
+    font-size: 2rem;
+}
+
+.no-reviews h3 {
+    margin: 10px 0 5px;
+    color: #333;
+}
+
+
+/* =========================================================
+   23. REVIEW LOGIN MESSAGE
+========================================================= */
+
+.review-login-message,
+.login-review-message {
+    margin-top: 20px;
+    padding: 20px;
+
+    background: #fff5f6;
+
+    border: 1px solid #ffd1d9;
+    border-radius: 12px;
+}
+
+.review-login-message p,
+.login-review-message p {
+    margin: 0;
+}
+
+.review-login-message a,
+.login-review-message a {
+    color: #ff385c;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+
+/* =========================================================
+   24. RESPONSIVE - TABLET LISTINGS
+========================================================= */
+
+@media (max-width: 950px) {
+
+    .stayverse-listings-grid {
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+    }
+}
+
+
+/* =========================================================
+   25. RESPONSIVE - PROPERTY TABLET
+========================================================= */
+
+@media (max-width: 900px) {
+
+    .property-content {
+        grid-template-columns: 1fr;
+        gap: 35px;
+    }
+
+    .property-image-wrapper {
+        height: 400px;
+    }
+
+    .booking-card {
+        position: static;
+    }
+
+    .property-info-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+/* =========================================================
+   26. RESPONSIVE - NAVBAR / REVIEWS
+========================================================= */
+
+@media (max-width: 768px) {
+
+    .navbar {
+        height: auto;
+        min-height: 70px;
+
+        padding: 15px 20px;
+    }
+
+    .nav-links {
+        gap: 14px;
+    }
+
+    .review-form-section {
+        max-width: 100%;
+        padding: 22px;
+    }
+
+    .reviews-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .review-form-section h2,
+    .reviews-section h2 {
+        font-size: 25px;
+    }
+}
+
+
+/* =========================================================
+   27. RESPONSIVE - LISTINGS MOBILE
+========================================================= */
+
+@media (max-width: 650px) {
+
+    .listings-page {
+        padding: 30px 18px 60px;
+    }
+
+    .listings-page-header {
+        flex-direction: column;
+        align-items: flex-start;
+
+        margin-bottom: 28px;
+    }
+
+    .listings-page-header h1 {
+        font-size: 2rem;
+    }
+
+    .stayverse-listings-grid {
+        grid-template-columns: 1fr;
+        gap: 25px;
+    }
+
+    .stayverse-card-image {
+        height: 240px;
+    }
+
+    .create-listing-btn {
+        width: 100%;
+    }
+}
+
+
+/* =========================================================
+   28. RESPONSIVE - PROPERTY MOBILE
+========================================================= */
+
+@media (max-width: 600px) {
+
+    .property-page {
+        padding: 25px 15px 50px;
+    }
+
+    .property-title {
+        font-size: 1.7rem;
+    }
+
+    .property-image-wrapper {
+        height: 280px;
+        border-radius: 15px;
+    }
+
+    .property-price-badge {
+        right: 15px;
+        bottom: 15px;
+
+        padding: 10px 15px;
+
+        font-size: 1.05rem;
+    }
+
+    .property-content {
+        margin-top: 30px;
+        gap: 25px;
+    }
+
+    .owner-actions {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .edit-listing-btn,
+    .delete-listing-btn {
+        width: 100%;
+        text-align: center;
+    }
+
+    .review-submit-btn {
+        width: 100%;
+    }
+}
+
+/* =========================================================
+   STAYVERSE CATEGORY FILTER BAR
+========================================================= */
+
+.stayverse-category-wrapper {
+    width: 100%;
+
+    display: flex;
+    align-items: center;
+
+    gap: 22px;
+
+    padding: 18px 4.5rem 10px;
+
+    background: #fff;
+
+    border-bottom: 1px solid #eee;
+
+    position: sticky;
+    top: 0;
+
+    z-index: 100;
+}
+
+
+/* =========================================================
+   CATEGORY SCROLL AREA
+========================================================= */
+
+.stayverse-category-bar {
+    flex: 1;
+
+    min-width: 0;
+
+    display: flex;
+    align-items: center;
+
+    gap: 35px;
+
+    overflow-x: auto;
+    overflow-y: hidden;
+
+    scroll-behavior: smooth;
+
+    scrollbar-width: none;
+}
+
+.stayverse-category-bar::-webkit-scrollbar {
+    display: none;
+}
+
+
+/* =========================================================
+   CATEGORY
+========================================================= */
+
+.category-item {
+    min-width: max-content;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    gap: 7px;
+
+    padding: 4px 2px 12px;
+
+    position: relative;
+
+    color: #717171;
+
+    font-size: 12px;
+    font-weight: 600;
+
+    text-decoration: none;
+
+    opacity: 0.72;
+
+    transition:
+        color 0.2s ease,
+        opacity 0.2s ease,
+        transform 0.2s ease;
+}
+
+
+.category-item:hover {
+    color: #222;
+
+    opacity: 1;
+
+    transform: translateY(-1px);
+}
+
+
+/* =========================================================
+   CATEGORY ICON
+========================================================= */
+
+.category-icon {
+    height: 28px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 24px;
+
+    filter: grayscale(100%);
+
+    transition:
+        filter 0.2s ease,
+        transform 0.2s ease;
+}
+
+
+.category-item:hover .category-icon {
+    filter: grayscale(0%);
+
+    transform: scale(1.05);
+}
+
+
+/* =========================================================
+   ACTIVE CATEGORY
+========================================================= */
+
+.category-item.active {
+    color: #222;
+
+    opacity: 1;
+}
+
+
+.category-item.active .category-icon {
+    filter: grayscale(0%);
+}
+
+
+.category-item.active::after {
+    content: "";
+
+    width: 100%;
+    height: 2px;
+
+    position: absolute;
+
+    left: 0;
+    bottom: 0;
+
+    background: #222;
+
+    border-radius: 10px;
+}
+
+
+/* =========================================================
+   FILTER BUTTON
+========================================================= */
+
+.stayverse-filter-btn {
+    min-width: 105px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 8px;
+
+    padding: 14px 17px;
+
+    flex-shrink: 0;
+
+    background: #fff;
+
+    color: #222;
+
+    border: 1px solid #ddd;
+    border-radius: 12px;
+
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease,
+        transform 0.2s ease;
+}
+
+
+.stayverse-filter-btn:hover {
+    border-color: #222;
+
+    transform: translateY(-1px);
+
+    box-shadow:
+        0 3px 10px rgba(0, 0, 0, 0.08);
+}
+
+
+/* =========================================================
+   EMPTY CATEGORY
+========================================================= */
+
+.category-empty-state {
+    max-width: 600px;
+
+    margin: 70px auto;
+
+    padding: 50px 30px;
+
+    text-align: center;
+
+    background: #fff;
+
+    border: 1px solid #eee;
+    border-radius: 20px;
+}
+
+
+.category-empty-icon {
+    margin-bottom: 15px;
+
+    font-size: 50px;
+}
+
+
+.category-empty-state h2 {
+    margin: 0 0 10px;
+
+    color: #222;
+
+    font-size: 1.6rem;
+}
+
+
+.category-empty-state p {
+    margin-bottom: 25px;
+
+    color: #717171;
+
+    line-height: 1.6;
+}
+
+
+.category-clear-btn {
+    display: inline-flex;
+
+    padding: 12px 20px;
+
+    background: #ff385c;
+
+    color: #fff;
+
+    border-radius: 10px;
+
+    font-weight: 600;
+
+    text-decoration: none;
+}
+
+
+.category-clear-btn:hover {
+    background: #e31c5f;
+
+    color: #fff;
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 900px) {
+
+    .stayverse-category-wrapper {
+        padding:
+            15px 25px
+            8px;
+    }
+
+    .stayverse-category-bar {
+        gap: 28px;
+    }
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 600px) {
+
+    .stayverse-category-wrapper {
+        padding:
+            14px 15px
+            7px;
+
+        gap: 10px;
+    }
+
+
+    .stayverse-category-bar {
+        gap: 25px;
+    }
+
+
+    .category-item {
+        font-size: 11px;
+    }
+
+
+    .category-icon {
+        font-size: 22px;
+    }
+
+
+    .stayverse-filter-btn {
+        min-width: auto;
+
+        padding: 12px;
+    }
+}
+
+/* =========================================================
+   STAYVERSE SEARCH + FILTER + TAX SYSTEM
+========================================================= */
+
+
+/* =========================================================
+   SEARCH SECTION
+========================================================= */
+
+.stayverse-search-section {
+    width: 100%;
+
+    padding: 22px 25px 18px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    background: #fff;
+}
+
+
+.stayverse-search-bar {
+    width: 100%;
+    max-width: 760px;
+    min-height: 66px;
+
+    display: flex;
+    align-items: center;
+
+    padding: 6px 8px 6px 0;
+
+    background: #fff;
+
+    border: 1px solid #ddd;
+    border-radius: 40px;
+
+    box-shadow:
+        0 3px 12px rgba(0, 0, 0, 0.10);
+}
+
+
+.search-field {
+    flex: 1;
+    min-width: 0;
+
+    display: flex;
+    flex-direction: column;
+
+    padding: 7px 24px;
+}
+
+
+.search-location {
+    flex: 1.4;
+}
+
+
+.search-field label {
+    margin-bottom: 3px;
+
+    color: #222;
+
+    font-size: 12px;
+    font-weight: 700;
+}
+
+
+.search-field input,
+.search-field select {
+    width: 100%;
+
+    padding: 0;
+
+    border: none;
+    outline: none;
+
+    background: transparent;
+
+    color: #717171;
+
+    font-family: inherit;
+    font-size: 14px;
+}
+
+
+.search-field select {
+    cursor: pointer;
+}
+
+
+.search-field input::placeholder {
+    color: #999;
+}
+
+
+.search-divider {
+    width: 1px;
+    height: 35px;
+
+    flex-shrink: 0;
+
+    background: #ddd;
+}
+
+
+.stayverse-search-btn {
+    width: 52px;
+    height: 52px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    flex-shrink: 0;
+
+    border: none;
+    border-radius: 50%;
+
+    background: #ff385c;
+    color: white;
+
+    font-size: 17px;
+
+    cursor: pointer;
+
+    transition:
+        transform .2s ease,
+        background .2s ease;
+}
+
+
+.stayverse-search-btn:hover {
+    background: #e31c5f;
+
+    transform: scale(1.05);
+}
+
+
+.clear-search-link {
+    margin-top: 10px;
+
+    color: #717171;
+
+    font-size: 13px;
+
+    text-decoration: underline;
+}
+
+
+
+/* =========================================================
+   FILTER BAR
+========================================================= */
+
+.filter-section {
+    width: 100%;
+
+    display: flex;
+    align-items: center;
+
+    gap: 25px;
+
+    padding: 18px 5%;
+
+    background: #fff;
+
+    border-top: 1px solid #f1f1f1;
+    border-bottom: 1px solid #eee;
+}
+
+
+
+/* =========================================================
+   CATEGORY SCROLL AREA
+========================================================= */
+
+.category-scroll {
+    flex: 1;
+
+    display: flex;
+    align-items: center;
+
+    gap: 32px;
+
+    overflow-x: auto;
+
+    scrollbar-width: none;
+}
+
+
+.category-scroll::-webkit-scrollbar {
+    display: none;
+}
+
+
+
+/* =========================================================
+   CATEGORY ITEM
+========================================================= */
+
+.category-item {
+    min-width: max-content;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    gap: 7px;
+
+    padding: 8px 2px 10px;
+
+    position: relative;
+
+    color: #717171;
+
+    text-decoration: none;
+
+    font-size: 12px;
+    font-weight: 500;
+
+    transition:
+        color .2s ease,
+        transform .2s ease;
+}
+
+
+.category-item i {
+    font-size: 21px;
+}
+
+
+.category-item:hover {
+    color: #222;
+
+    transform: translateY(-1px);
+}
+
+
+.category-item.active {
+    color: #222;
+
+    font-weight: 600;
+}
+
+
+.category-item.active::after {
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    height: 2px;
+
+    background: #222;
+}
+
+
+
+/* =========================================================
+   TAX TOGGLE CONTAINER
+========================================================= */
+
+.tax-toggle-box {
+    min-width: 245px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 20px;
+
+    padding: 16px 18px;
+
+    border: 1px solid #ddd;
+    border-radius: 14px;
+
+    background: #fff;
+
+    color: #222;
+
+    font-size: 14px;
+    font-weight: 600;
+
+    white-space: nowrap;
+}
+
+
+
+/* =========================================================
+   TAX SWITCH
+========================================================= */
+
+.tax-switch {
+    width: 46px;
+    height: 26px;
+
+    position: relative;
+
+    display: inline-block;
+
+    flex-shrink: 0;
+}
+
+
+.tax-switch input {
+    width: 0;
+    height: 0;
+
+    opacity: 0;
+}
+
+
+.tax-slider {
+    position: absolute;
+
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    background: #b0b0b0;
+
+    border-radius: 30px;
+
+    cursor: pointer;
+
+    transition: .25s;
+}
+
+
+.tax-slider::before {
+    content: "";
+
+    width: 20px;
+    height: 20px;
+
+    position: absolute;
+
+    left: 3px;
+    bottom: 3px;
+
+    background: white;
+
+    border-radius: 50%;
+
+    box-shadow:
+        0 1px 4px rgba(0,0,0,.2);
+
+    transition: .25s;
+}
+
+
+.tax-switch input:checked + .tax-slider {
+    background: #222;
+}
+
+
+.tax-switch input:checked + .tax-slider::before {
+    transform: translateX(20px);
+}
+
+
+
+/* =========================================================
+   CARD PRICE
+========================================================= */
+
+.stayverse-card-price {
+    display: flex;
+    align-items: baseline;
+    flex-wrap: wrap;
+
+    gap: 4px;
+
+    margin-bottom: 9px;
+
+    color: #222;
+
+    font-size: 16px;
+}
+
+
+.price-value {
+    font-weight: 700;
+}
+
+
+.price-night {
+    font-weight: 400;
+
+    color: #333;
+}
+
+
+.tax-label {
+    margin-left: 5px;
+
+    color: #555;
+
+    font-size: 14px;
+    font-style: italic;
+    font-weight: 500;
+
+    transition: color .2s ease;
+}
+
+
+.tax-label.tax-included {
+    color: #717171;
+
+    font-style: normal;
+
+    font-size: 12px;
+}
+
+
+
+/* =========================================================
+   CARD IMAGE — AIRBNB STYLE
+========================================================= */
+
+.stayverse-card-image {
+    width: 100%;
+
+    aspect-ratio: 1.35 / 1;
+
+    overflow: hidden;
+
+    background: #eee;
+
+    border-radius: 16px;
+}
+
+
+.stayverse-card-image img {
+    width: 100%;
+    height: 100%;
+
+    display: block;
+
+    object-fit: cover;
+    object-position: center;
+
+    transition: transform .35s ease;
+}
+
+
+.stayverse-listing-card:hover
+.stayverse-card-image img {
+
+    transform: scale(1.025);
+}
+
+
+
+/* =========================================================
+   NO RESULTS
+========================================================= */
+
+.no-listings-found {
+    padding: 70px 20px;
+
+    text-align: center;
+}
+
+
+.no-listings-found i {
+    margin-bottom: 18px;
+
+    color: #717171;
+
+    font-size: 35px;
+}
+
+
+.no-listings-found h2 {
+    margin: 0 0 8px;
+
+    font-size: 24px;
+}
+
+
+.no-listings-found p {
+    margin-bottom: 20px;
+
+    color: #717171;
+}
+
+
+.no-listings-found a {
+    color: #222;
+
+    font-weight: 600;
+}
+
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 1000px) {
+
+    .filter-section {
+        flex-direction: column;
+        align-items: stretch;
+
+        gap: 15px;
+    }
+
+
+    .tax-toggle-box {
+        align-self: flex-end;
+
+        min-width: 230px;
+    }
+
+}
+
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 650px) {
+
+    .stayverse-search-section {
+        padding: 15px;
+    }
+
+
+    .stayverse-search-bar {
+        min-height: 58px;
+    }
+
+
+    .search-field {
+        padding: 6px 15px;
+    }
+
+
+    .search-field:not(.search-location),
+    .search-divider {
+        display: none;
+    }
+
+
+    .stayverse-search-btn {
+        width: 45px;
+        height: 45px;
+
+        font-size: 15px;
+    }
+
+
+    .filter-section {
+        padding: 12px 15px;
+    }
+
+
+    .category-scroll {
+        gap: 25px;
+    }
+
+
+    .tax-toggle-box {
+        width: 100%;
+
+        min-width: 0;
+
+        align-self: stretch;
+    }
+
+
+    .category-item i {
+        font-size: 19px;
+    }
+
+}

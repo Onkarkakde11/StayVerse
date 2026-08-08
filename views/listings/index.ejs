@@ -1,0 +1,597 @@
+<% layout("layouts/boilerplate") %>
+
+<!-- =====================================================
+     SEARCH BAR
+===================================================== -->
+
+<section class="stayverse-search-section">
+
+    <form action="/listings" method="GET" class="stayverse-search-bar">
+
+        <!-- LOCATION / SEARCH -->
+        <div class="search-field search-location">
+
+            <label for="search">Where</label>
+
+            <input
+                type="text"
+                id="search"
+                name="search"
+                value="<%= typeof searchQuery !== 'undefined' ? searchQuery : '' %>"
+                placeholder="Search destinations"
+                autocomplete="off"
+            >
+
+        </div>
+
+        <div class="search-divider"></div>
+
+        <!-- CATEGORY -->
+        <div class="search-field">
+
+            <label for="search-category">Category</label>
+
+            <select id="search-category" name="category">
+
+                <option value="">Any category</option>
+
+                <% const categories = [
+                    "Trending",
+                    "Rooms",
+                    "Iconic Cities",
+                    "Mountains",
+                    "Castles",
+                    "Amazing Pools",
+                    "Camping",
+                    "Farms",
+                    "Arctic",
+                    "Domes",
+                    "Boats",
+                    "Beach",
+                    "Cabins",
+                    "Lakefront"
+                ]; %>
+
+                <% categories.forEach(cat => { %>
+
+                    <option
+                        value="<%= cat %>"
+                        <%= typeof selectedCategory !== "undefined" &&
+                            selectedCategory === cat
+                            ? "selected"
+                            : "" %>
+                    >
+                        <%= cat %>
+                    </option>
+
+                <% }) %>
+
+            </select>
+
+        </div>
+
+        <!-- SEARCH BUTTON -->
+        <button
+            type="submit"
+            class="stayverse-search-btn"
+            aria-label="Search"
+        >
+            <i class="fa-solid fa-magnifying-glass"></i>
+        </button>
+
+    </form>
+
+    <% if (
+        (typeof searchQuery !== "undefined" && searchQuery) ||
+        (typeof selectedCategory !== "undefined" && selectedCategory)
+    ) { %>
+
+        <a href="/listings" class="clear-search-link">
+            Clear search
+        </a>
+
+    <% } %>
+
+</section>
+
+
+<!-- =====================================================
+     FILTER / CATEGORY BAR
+===================================================== -->
+
+<section class="filter-section">
+
+    <div class="category-scroll">
+
+        <!-- ALL -->
+        <a
+            href="/listings"
+            class="category-item <%= !selectedCategory ? 'active' : '' %>"
+        >
+            <i class="fa-solid fa-compass"></i>
+            <span>All</span>
+        </a>
+
+        <!-- TRENDING -->
+        <a
+            href="/listings?category=Trending"
+            class="category-item <%= selectedCategory === 'Trending' ? 'active' : '' %>"
+        >
+            <i class="fa-solid fa-fire"></i>
+            <span>Trending</span>
+        </a>
+
+        <!-- ROOMS -->
+        <a
+            href="/listings?category=Rooms"
+            class="category-item <%= selectedCategory === 'Rooms' ? 'active' : '' %>"
+        >
+            <i class="fa-solid fa-bed"></i>
+            <span>Rooms</span>
+        </a>
+
+        <!-- ICONIC CITIES -->
+        <a
+            href="/listings?category=Iconic%20Cities"
+            class="category-item <%= selectedCategory === 'Iconic Cities' ? 'active' : '' %>"
+        >
+            <i class="fa-solid fa-city"></i>
+            <span>Iconic Cities</span>
+        </a>
+
+        <!-- MOUNTAINS -->
+        <a
+            href="/listings?category=Mountains"
+            class="category-item <%= selectedCategory === 'Mountains' ? 'active' : '' %>"
+        >
+            <i class="fa-solid fa-mountain"></i>
+            <span>Mountains</span>
+        </a>
+
+        <!-- CASTLES -->
+        <a
+            href="/listings?category=Castles"
+            class="category-item <%= selectedCategory === 'Castles' ? 'active' : '' %>"
+        >
+            <i class="fa-solid fa-chess-rook"></i>
+            <span>Castles</span>
+        </a>
+
+        <!-- AMAZING POOLS -->
+        <a
+            href="/listings?category=Amazing%20Pools"
+            class="category-item <%= selectedCategory === 'Amazing Pools' ? 'active' : '' %>"
+        >
+            <i class="fa-solid fa-water-ladder"></i>
+            <span>Amazing Pools</span>
+        </a>
+
+        <!-- CAMPING -->
+        <a
+            href="/listings?category=Camping"
+            class="category-item <%= selectedCategory === 'Camping' ? 'active' : '' %>"
+        >
+            <i class="fa-solid fa-campground"></i>
+            <span>Camping</span>
+        </a>
+
+        <!-- FARMS -->
+        <a
+            href="/listings?category=Farms"
+            class="category-item <%= selectedCategory === 'Farms' ? 'active' : '' %>"
+        >
+            <i class="fa-solid fa-tractor"></i>
+            <span>Farms</span>
+        </a>
+
+        <!-- ARCTIC -->
+        <a
+            href="/listings?category=Arctic"
+            class="category-item <%= selectedCategory === 'Arctic' ? 'active' : '' %>"
+        >
+            <i class="fa-regular fa-snowflake"></i>
+            <span>Arctic</span>
+        </a>
+
+        <!-- DOMES -->
+        <a
+            href="/listings?category=Domes"
+            class="category-item <%= selectedCategory === 'Domes' ? 'active' : '' %>"
+        >
+            <i class="fa-solid fa-igloo"></i>
+            <span>Domes</span>
+        </a>
+
+        <!-- BOATS -->
+        <a
+            href="/listings?category=Boats"
+            class="category-item <%= selectedCategory === 'Boats' ? 'active' : '' %>"
+        >
+            <i class="fa-solid fa-sailboat"></i>
+            <span>Boats</span>
+        </a>
+
+        <!-- BEACH -->
+        <a
+            href="/listings?category=Beach"
+            class="category-item <%= selectedCategory === 'Beach' ? 'active' : '' %>"
+        >
+            <i class="fa-solid fa-umbrella-beach"></i>
+            <span>Beach</span>
+        </a>
+
+        <!-- CABINS -->
+        <a
+            href="/listings?category=Cabins"
+            class="category-item <%= selectedCategory === 'Cabins' ? 'active' : '' %>"
+        >
+            <i class="fa-solid fa-house-chimney"></i>
+            <span>Cabins</span>
+        </a>
+
+        <!-- LAKEFRONT -->
+        <a
+            href="/listings?category=Lakefront"
+            class="category-item <%= selectedCategory === 'Lakefront' ? 'active' : '' %>"
+        >
+            <i class="fa-solid fa-water"></i>
+            <span>Lakefront</span>
+        </a>
+
+    </div>
+
+
+    <!-- =================================================
+         TAX TOGGLE
+    ================================================== -->
+
+    <div class="tax-toggle-box">
+
+        <span>Display total after taxes</span>
+
+        <label class="tax-switch">
+
+            <input
+                type="checkbox"
+                id="taxToggle"
+            >
+
+            <span class="tax-slider"></span>
+
+        </label>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     LISTINGS PAGE
+===================================================== -->
+
+<main class="listings-page">
+
+    <!-- PAGE HEADING -->
+    <div class="listings-page-header">
+
+        <div>
+
+            <h1>
+
+                <% if (selectedCategory) { %>
+
+                    <%= selectedCategory %> Stays
+
+                <% } else if (searchQuery) { %>
+
+                    Search Results
+
+                <% } else { %>
+
+                    Explore Stays
+
+                <% } %>
+
+            </h1>
+
+            <% if (searchQuery) { %>
+
+                <p>
+                    Results for "<%= searchQuery %>"
+                </p>
+
+            <% } else { %>
+
+                <p>
+                    Discover your next perfect stay.
+                </p>
+
+            <% } %>
+
+        </div>
+
+
+        <% if (currUser) { %>
+
+            <a
+                href="/listings/new"
+                class="create-listing-btn"
+            >
+                + Add New Listing
+            </a>
+
+        <% } %>
+
+    </div>
+
+
+    <!-- =================================================
+         NO LISTINGS
+    ================================================== -->
+
+    <% if (allListings.length === 0) { %>
+
+        <div class="no-listings-found">
+
+            <i class="fa-solid fa-magnifying-glass"></i>
+
+            <h2>No stays found</h2>
+
+            <p>
+                Try another destination or category.
+            </p>
+
+            <a href="/listings">
+                View all stays
+            </a>
+
+        </div>
+
+    <% } else { %>
+
+
+        <!-- =================================================
+             LISTING GRID
+        ================================================== -->
+
+        <div class="stayverse-listings-grid">
+
+            <% allListings.forEach(listing => { %>
+
+                <a
+                    href="/listings/<%= listing._id %>"
+                    class="stayverse-listing-link"
+                >
+
+                    <article class="stayverse-listing-card">
+
+                        <!-- IMAGE -->
+                        <div class="stayverse-card-image">
+
+                            <img
+                                src="<%= listing.image && listing.image.url
+                                    ? listing.image.url
+                                    : 'https://images.unsplash.com/photo-1564013799919-ab600027ffc6' %>"
+                                alt="<%= listing.title %>"
+                                loading="lazy"
+                            >
+
+                        </div>
+
+
+                        <!-- CARD CONTENT -->
+                        <div class="stayverse-card-content">
+
+                            <!-- TITLE -->
+                            <h2>
+                                <%= listing.title %>
+                            </h2>
+
+
+                            <!-- PRICE -->
+                            <div
+                                class="stayverse-card-price"
+                                data-base-price="<%= listing.price %>"
+                            >
+
+                                <span class="price-value">
+                                    $<%= Number(listing.price).toLocaleString("en-US") %>
+                                </span>
+
+                                <span class="price-night">
+                                    / night
+                                </span>
+
+                                <span class="tax-label">
+                                    +18% GST
+                                </span>
+
+                            </div>
+
+
+                            <!-- LOCATION -->
+                            <div class="stayverse-card-location">
+
+                                <i class="fa-solid fa-location-dot"></i>
+
+                                <span>
+                                    <%= listing.location %>,
+                                    <%= listing.country %>
+                                </span>
+
+                            </div>
+
+                        </div>
+
+                    </article>
+
+                </a>
+
+            <% }) %>
+
+        </div>
+
+    <% } %>
+
+</main>
+
+
+<!-- =====================================================
+     TAX TOGGLE JAVASCRIPT
+===================================================== -->
+
+<script>
+
+document.addEventListener("DOMContentLoaded", function () {
+
+    // =====================================================
+    // GET TAX TOGGLE
+    // =====================================================
+
+    const taxToggle = document.getElementById("taxToggle");
+
+    if (!taxToggle) {
+        return;
+    }
+
+
+    // =====================================================
+    // GST RATE
+    // =====================================================
+
+    const TAX_RATE = 0.18;
+
+
+    // =====================================================
+    // FORMAT USD PRICE
+    // =====================================================
+
+    function formatPrice(price) {
+
+        return new Intl.NumberFormat(
+            "en-US",
+            {
+                minimumFractionDigits: 0,
+                maximumFractionDigits: 2
+            }
+        ).format(price);
+
+    }
+
+
+    // =====================================================
+    // UPDATE ALL LISTING PRICES
+    // =====================================================
+
+    function updatePrices() {
+
+        const priceElements =
+            document.querySelectorAll(".stayverse-card-price");
+
+
+        priceElements.forEach(function (priceElement) {
+
+            // Get original database price
+            const basePrice =
+                Number(priceElement.dataset.basePrice);
+
+
+            // Get HTML elements
+            const priceValue =
+                priceElement.querySelector(".price-value");
+
+            const taxLabel =
+                priceElement.querySelector(".tax-label");
+
+
+            // Safety check
+            if (
+                !Number.isFinite(basePrice) ||
+                !priceValue
+            ) {
+                return;
+            }
+
+
+            // =================================================
+            // TOGGLE ON
+            // Display price including 18% GST
+            // =================================================
+
+            if (taxToggle.checked) {
+
+                const taxAmount =
+                    basePrice * TAX_RATE;
+
+                const totalPrice =
+                    basePrice + taxAmount;
+
+
+                // Display total price in dollars
+                priceValue.textContent =
+                    `$${formatPrice(totalPrice)}`;
+
+
+                // Change GST text
+                if (taxLabel) {
+
+                    taxLabel.textContent =
+                        "incl. 18% GST";
+
+                    taxLabel.style.display =
+                        "inline";
+
+                }
+
+            }
+
+
+            // =================================================
+            // TOGGLE OFF
+            // Display original price + GST text
+            // =================================================
+
+            else {
+
+                // Original price in dollars
+                priceValue.textContent =
+                    `$${formatPrice(basePrice)}`;
+
+
+                // Show +18% GST
+                if (taxLabel) {
+
+                    taxLabel.textContent =
+                        "+18% GST";
+
+                    taxLabel.style.display =
+                        "inline";
+
+                }
+
+            }
+
+        });
+
+    }
+
+
+    // =====================================================
+    // INITIAL PAGE STATE
+    // =====================================================
+
+    updatePrices();
+
+
+    // =====================================================
+    // TAX TOGGLE EVENT
+    // =====================================================
+
+    taxToggle.addEventListener(
+        "change",
+        updatePrices
+    );
+
+});
+
+</script>
