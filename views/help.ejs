@@ -1,0 +1,158 @@
+<% layout("layouts/boilerplate") %>
+
+<div class="container py-5">
+
+    <div class="text-center mb-5">
+        <h1>How can we help?</h1>
+        <p class="text-muted">
+            Find answers to common questions about StayVerse.
+        </p>
+    </div>
+
+    <div class="row g-4">
+
+        <!-- Booking -->
+        <div class="col-md-6">
+            <div class="card h-100 shadow-sm p-4">
+                <h3>🏠 Booking a Stay</h3>
+                <p>
+                    Browse available properties, select a listing,
+                    and check its details before making your decision.
+                </p>
+            </div>
+        </div>
+
+        <!-- Hosting -->
+        <div class="col-md-6">
+            <div class="card h-100 shadow-sm p-4">
+                <h3>🏡 Become a Host</h3>
+                <p>
+                    Want to list your property on StayVerse?
+                    Login to your account and create a new listing.
+                </p>
+            </div>
+        </div>
+
+        <!-- Account -->
+        <div class="col-md-6">
+            <div class="card h-100 shadow-sm p-4">
+                <h3>👤 Account</h3>
+                <p>
+                    You can create an account, login, logout,
+                    and manage your StayVerse profile.
+                </p>
+            </div>
+        </div>
+
+        <!-- Listings -->
+        <div class="col-md-6">
+            <div class="card h-100 shadow-sm p-4">
+                <h3>🔍 Finding a Property</h3>
+                <p>
+                    Use the search bar and categories to find
+                    properties based on your preferred destination.
+                </p>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- FAQ -->
+
+    <div class="mt-5">
+
+        <h2 class="mb-4">Frequently Asked Questions</h2>
+
+        <div class="accordion" id="faqAccordion">
+
+            <div class="accordion-item">
+                <h2 class="accordion-header">
+                    <button
+                        class="accordion-button"
+                        type="button"
+                        data-bs-toggle="collapse"
+                        data-bs-target="#faq1">
+                        How do I book a property?
+                    </button>
+                </h2>
+
+                <div id="faq1"
+                     class="accordion-collapse collapse show"
+                     data-bs-parent="#faqAccordion">
+
+                    <div class="accordion-body">
+                        Browse the available listings and open a property
+                        to view its details.
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="accordion-item">
+                <h2 class="accordion-header">
+                    <button
+                        class="accordion-button collapsed"
+                        type="button"
+                        data-bs-toggle="collapse"
+                        data-bs-target="#faq2">
+                        How can I become a host?
+                    </button>
+                </h2>
+
+                <div id="faq2"
+                     class="accordion-collapse collapse"
+                     data-bs-parent="#faqAccordion">
+
+                    <div class="accordion-body">
+                        Login to your StayVerse account and use the
+                        "Become a Host" option to create a listing.
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="accordion-item">
+                <h2 class="accordion-header">
+                    <button
+                        class="accordion-button collapsed"
+                        type="button"
+                        data-bs-toggle="collapse"
+                        data-bs-target="#faq3">
+                        Do I need an account?
+                    </button>
+                </h2>
+
+                <div id="faq3"
+                     class="accordion-collapse collapse"
+                     data-bs-parent="#faqAccordion">
+
+                    <div class="accordion-body">
+                        You can browse listings without an account.
+                        Some features require you to login.
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- Contact -->
+
+    <div class="text-center mt-5 p-4">
+
+        <h3>Still need help?</h3>
+
+        <p class="text-muted">
+            Contact the StayVerse support team.
+        </p>
+
+        <a href="mailto:stayverse.support@gmail.com"
+           class="btn btn-dark">
+            Contact Support
+        </a>
+
+    </div>
+
+</div>
