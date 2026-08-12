@@ -2698,3 +2698,642 @@ body {
     }
 
 }
+
+/* =====================================================
+   STAYVERSE RESPONSIVE DESIGN
+   Mobile + Tablet + Desktop
+===================================================== */
+
+
+/* =====================================================
+   GENERAL
+===================================================== */
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    width: 100%;
+    overflow-x: hidden;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    overflow-x: hidden;
+}
+
+img {
+    max-width: 100%;
+}
+
+
+/* =====================================================
+   DESKTOP NAVBAR
+===================================================== */
+
+.navbar {
+    width: 100%;
+    min-height: 80px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 15px 5%;
+
+    gap: 20px;
+}
+
+.navbar-brand {
+    flex-shrink: 0;
+}
+
+.navbar-brand img {
+    max-width: 180px;
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 30px;
+
+    flex: 1;
+}
+
+.nav-links a {
+    white-space: nowrap;
+}
+
+.nav-actions {
+    display: flex;
+    align-items: center;
+
+    gap: 15px;
+
+    flex-shrink: 0;
+}
+
+
+/* =====================================================
+   SEARCH BAR
+===================================================== */
+
+.search-container,
+.search-bar {
+    width: 100%;
+    max-width: 1000px;
+
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.search-bar {
+    display: flex;
+    align-items: center;
+}
+
+
+/* =====================================================
+   FILTER / CATEGORY BAR
+===================================================== */
+
+.filters {
+    width: 100%;
+
+    display: flex;
+    align-items: center;
+
+    gap: 25px;
+
+    overflow-x: auto;
+
+    padding: 15px 30px;
+
+    scrollbar-width: none;
+}
+
+.filters::-webkit-scrollbar {
+    display: none;
+}
+
+.filter {
+    flex: 0 0 auto;
+
+    min-width: 70px;
+
+    text-align: center;
+}
+
+
+/* =====================================================
+   LISTING GRID
+===================================================== */
+
+.listing-container,
+.listings-container,
+.listing-grid {
+    width: 100%;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, minmax(0, 1fr));
+
+    gap: 30px;
+
+    padding: 20px 3%;
+}
+
+.listing-card {
+    width: 100%;
+    min-width: 0;
+}
+
+.listing-card img {
+    width: 100%;
+
+    aspect-ratio: 4 / 3;
+
+    object-fit: cover;
+
+    border-radius: 15px;
+}
+
+
+/* =====================================================
+   TAX TOGGLE
+===================================================== */
+
+.tax-toggle {
+    display: flex;
+    align-items: center;
+
+    justify-content: center;
+
+    margin-left: auto;
+
+    margin-right: 30px;
+
+    white-space: nowrap;
+}
+
+
+/* =====================================================
+   TABLET
+   768px - 1024px
+===================================================== */
+
+@media (max-width: 1024px) {
+
+    .navbar {
+        padding: 15px 25px;
+
+        gap: 15px;
+    }
+
+    .nav-links {
+        gap: 18px;
+    }
+
+    .nav-links a {
+        font-size: 16px;
+    }
+
+    .nav-actions {
+        gap: 8px;
+    }
+
+    .search-container,
+    .search-bar {
+        width: 90%;
+    }
+
+    .listing-container,
+    .listings-container,
+    .listing-grid {
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+
+        gap: 25px;
+
+        padding: 20px 25px;
+    }
+
+    .tax-toggle {
+        margin-right: 25px;
+    }
+}
+
+
+/* =====================================================
+   MOBILE
+   <= 767px
+===================================================== */
+
+@media (max-width: 767px) {
+
+    /* -----------------------------
+       BODY
+    ----------------------------- */
+
+    body {
+        font-size: 15px;
+    }
+
+
+    /* -----------------------------
+       NAVBAR
+    ----------------------------- */
+
+    .navbar {
+        min-height: auto;
+
+        width: 100%;
+
+        display: flex;
+
+        flex-wrap: wrap;
+
+        align-items: center;
+
+        justify-content: space-between;
+
+        padding: 15px 20px;
+
+        gap: 12px;
+    }
+
+
+    /* Logo */
+
+    .navbar-brand {
+        flex: 0 0 auto;
+    }
+
+    .navbar-brand img {
+        width: 150px;
+
+        max-width: 150px;
+    }
+
+
+    /* Navigation links */
+
+    .nav-links {
+        order: 3;
+
+        width: 100%;
+
+        display: flex;
+
+        justify-content: space-between;
+
+        gap: 8px;
+
+        overflow-x: auto;
+
+        padding: 5px 0;
+
+        scrollbar-width: none;
+    }
+
+    .nav-links::-webkit-scrollbar {
+        display: none;
+    }
+
+    .nav-links a {
+        flex: 0 0 auto;
+
+        white-space: nowrap;
+
+        font-size: 15px;
+
+        padding: 8px 5px;
+    }
+
+
+    /* Actions */
+
+    .nav-actions {
+        display: flex;
+
+        align-items: center;
+
+        gap: 6px;
+    }
+
+
+    /* Hide unnecessary desktop elements */
+
+    .desktop-only {
+        display: none !important;
+    }
+
+
+    /* -----------------------------
+       USER BUTTON
+    ----------------------------- */
+
+    .user-menu {
+        max-width: 130px;
+
+        padding: 6px 10px;
+    }
+
+    .user-menu span {
+        font-size: 13px;
+    }
+
+
+    /* -----------------------------
+       SEARCH
+    ----------------------------- */
+
+    .search-container,
+    .search-bar {
+        width: calc(100% - 30px);
+
+        margin: 20px auto;
+
+        max-width: none;
+    }
+
+    .search-bar {
+        min-height: 60px;
+
+        border-radius: 35px;
+
+        padding: 8px 12px;
+    }
+
+    .search-bar input {
+        width: 100%;
+
+        min-width: 0;
+
+        font-size: 16px;
+    }
+
+
+    /* -----------------------------
+       FILTERS
+    ----------------------------- */
+
+    .filters {
+        width: 100%;
+
+        display: flex;
+
+        overflow-x: auto;
+
+        gap: 25px;
+
+        padding: 15px 20px;
+
+        justify-content: flex-start;
+    }
+
+    .filter {
+        flex: 0 0 auto;
+
+        min-width: 65px;
+    }
+
+    .filter p,
+    .filter span {
+        font-size: 13px;
+    }
+
+
+    /* -----------------------------
+       TAX TOGGLE
+    ----------------------------- */
+
+    .tax-toggle {
+        width: calc(100% - 40px);
+
+        margin: 10px 20px 20px;
+
+        padding: 15px;
+
+        justify-content: space-between;
+
+        border: 1px solid #ddd;
+
+        border-radius: 15px;
+
+        white-space: normal;
+    }
+
+
+    /* -----------------------------
+       PAGE HEADINGS
+    ----------------------------- */
+
+    .explore-heading,
+    .listings-heading {
+        padding: 0 20px;
+
+        margin-top: 30px;
+    }
+
+    .explore-heading h1,
+    .listings-heading h1 {
+        font-size: 32px;
+
+        line-height: 1.15;
+    }
+
+    .explore-heading p,
+    .listings-heading p {
+        font-size: 16px;
+    }
+
+
+    /* -----------------------------
+       ADD LISTING BUTTON
+    ----------------------------- */
+
+    .add-listing {
+        width: calc(100% - 40px);
+
+        margin: 20px;
+
+        text-align: center;
+    }
+
+
+    /* -----------------------------
+       LISTING GRID
+    ----------------------------- */
+
+    .listing-container,
+    .listings-container,
+    .listing-grid {
+        width: 100%;
+
+        display: grid;
+
+        grid-template-columns: 1fr;
+
+        gap: 25px;
+
+        padding: 15px 20px;
+    }
+
+
+    /* -----------------------------
+       LISTING CARD
+    ----------------------------- */
+
+    .listing-card {
+        width: 100%;
+
+        min-width: 0;
+    }
+
+    .listing-card img {
+        width: 100%;
+
+        aspect-ratio: 4 / 3;
+
+        object-fit: cover;
+
+        border-radius: 14px;
+    }
+
+    .listing-card h3 {
+        font-size: 18px;
+    }
+
+    .listing-card p {
+        font-size: 14px;
+    }
+}
+
+
+/* =====================================================
+   SMALL PHONES
+   <= 480px
+===================================================== */
+
+@media (max-width: 480px) {
+
+    .navbar {
+        padding: 12px 15px;
+    }
+
+
+    /* Logo */
+
+    .navbar-brand img {
+        width: 135px;
+    }
+
+
+    /* Navigation */
+
+    .nav-links {
+        gap: 5px;
+    }
+
+    .nav-links a {
+        font-size: 14px;
+
+        padding: 7px 3px;
+    }
+
+
+    /* User */
+
+    .user-menu {
+        max-width: 105px;
+    }
+
+    .user-menu span {
+        font-size: 11px;
+    }
+
+
+    /* Search */
+
+    .search-container,
+    .search-bar {
+        width: calc(100% - 25px);
+    }
+
+    .search-bar {
+        min-height: 58px;
+    }
+
+
+    /* Heading */
+
+    .explore-heading h1,
+    .listings-heading h1 {
+        font-size: 29px;
+    }
+
+
+    /* Filters */
+
+    .filters {
+        gap: 22px;
+
+        padding-left: 15px;
+
+        padding-right: 15px;
+    }
+
+
+    /* Tax */
+
+    .tax-toggle {
+        width: calc(100% - 30px);
+
+        margin-left: 15px;
+
+        margin-right: 15px;
+
+        font-size: 14px;
+    }
+
+
+    /* Listings */
+
+    .listing-container,
+    .listings-container,
+    .listing-grid {
+        padding-left: 15px;
+
+        padding-right: 15px;
+    }
+}
+
+
+/* =====================================================
+   VERY SMALL PHONES
+   <= 360px
+===================================================== */
+
+@media (max-width: 360px) {
+
+    .navbar-brand img {
+        width: 120px;
+    }
+
+    .nav-links a {
+        font-size: 13px;
+    }
+
+    .explore-heading h1,
+    .listings-heading h1 {
+        font-size: 26px;
+    }
+
+}
